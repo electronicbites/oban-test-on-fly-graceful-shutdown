@@ -8,6 +8,15 @@ config :oban_tests, ObanTestsWeb.Endpoint,
   secret_key_base: "wJceE3LtEceHvx6ZAiCk8l71K2AmrtYIqtYZY5G8clHZZOrHdK7y7QTpRp7brfh4",
   server: false
 
+# Configure your database
+config :oban_tests, ObanTests.Repo,
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
+  database: "oban_tests_test#{System.get_env("MIX_TEST_PARTITION")}",
+  pool: Ecto.Adapters.SQL.Sandbox,
+  pool_size: System.schedulers_online() * 2
+
 # Disable Oban job processing during tests
 config :oban_tests, Oban, testing: :manual
 

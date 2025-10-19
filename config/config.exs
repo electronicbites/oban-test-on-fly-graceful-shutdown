@@ -46,12 +46,9 @@ config :oban_tests,
   ecto_repos: [ObanTests.Repo],
   generators: [timestamp_type: :utc_datetime]
 
-config :oban_tests,
-  generators: [timestamp_type: :utc_datetime]
-
-# Configure Oban with Lite engine (no database required)
+# Configure Oban
 config :oban_tests, Oban,
-  engine: Oban.Engines.Lite,
+  repo: ObanTests.Repo,
   queues: [default: 10],
   shutdown_grace_period: :timer.minutes(5)
 

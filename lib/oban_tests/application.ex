@@ -9,6 +9,7 @@ defmodule ObanTests.Application do
   def start(_type, _args) do
     children = [
       ObanTestsWeb.Telemetry,
+      ObanTests.Repo,
       {DNSCluster, query: Application.get_env(:oban_tests, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: ObanTests.PubSub},
       # Start Oban
