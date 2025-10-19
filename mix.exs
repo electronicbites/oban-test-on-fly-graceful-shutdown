@@ -69,6 +69,7 @@ defmodule ObanTests.MixProject do
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.5"},
       {:oban, "~> 2.18"},
+      {:oban_web, "~> 2.11"},
       {:postgrex, ">= 0.0.0"}
     ]
   end
