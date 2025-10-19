@@ -11,6 +11,8 @@ defmodule ObanTests.Application do
       ObanTestsWeb.Telemetry,
       {DNSCluster, query: Application.get_env(:oban_tests, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: ObanTests.PubSub},
+      # Start Oban
+      {Oban, Application.fetch_env!(:oban_tests, Oban)},
       # Start a worker by calling: ObanTests.Worker.start_link(arg)
       # {ObanTests.Worker, arg},
       # Start to serve requests, typically the last entry

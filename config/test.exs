@@ -8,6 +8,9 @@ config :oban_tests, ObanTestsWeb.Endpoint,
   secret_key_base: "wJceE3LtEceHvx6ZAiCk8l71K2AmrtYIqtYZY5G8clHZZOrHdK7y7QTpRp7brfh4",
   server: false
 
+# Disable Oban job processing during tests
+config :oban_tests, Oban, testing: :manual
+
 # In test we don't send emails
 config :oban_tests, ObanTests.Mailer, adapter: Swoosh.Adapters.Test
 

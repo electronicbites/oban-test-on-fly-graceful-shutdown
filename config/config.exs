@@ -45,6 +45,12 @@ config :spark,
 config :oban_tests,
   generators: [timestamp_type: :utc_datetime]
 
+# Configure Oban with Lite engine (no database required)
+config :oban_tests, Oban,
+  engine: Oban.Engines.Lite,
+  queues: [default: 10],
+  shutdown_grace_period: :timer.minutes(5)
+
 # Configures the endpoint
 config :oban_tests, ObanTestsWeb.Endpoint,
   url: [host: "localhost"],
