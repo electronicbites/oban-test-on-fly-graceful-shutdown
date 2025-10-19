@@ -9,6 +9,9 @@ kill_signal = 'SIGTERM'
 
 [build]
 
+[deploy]
+  release_command = "/app/bin/migrate"
+
 [env]
   PHX_HOST = 'oban-tests.fly.dev'
   PORT = '8080'
