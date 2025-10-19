@@ -20,6 +20,16 @@ config :oban_tests, ObanTestsWeb.Endpoint,
     tailwind: {Tailwind, :install_and_run, [:oban_tests, ~w(--watch)]}
   ]
 
+# Configure your database
+config :oban_tests, ObanTests.Repo,
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
+  database: "oban_tests_dev",
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
